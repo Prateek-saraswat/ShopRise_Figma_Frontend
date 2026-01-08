@@ -3,7 +3,7 @@
 import  { useState } from 'react';
 
 export default function SecondaryNav() {
-  const [selectedCategories, setSelectedCategories] = useState([
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([
     'Arts & Crafts',
     'Antiques & Collectibles',
     'Auto Parts',

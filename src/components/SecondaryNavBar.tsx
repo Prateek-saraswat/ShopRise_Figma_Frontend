@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 export default function SecondaryNavbar() {
-  const [selectedFilters, setSelectedFilters] = useState([
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([
     'Ready to ship',
     'Antiques & Collectibles',
     'Auto Parts',
@@ -13,7 +13,7 @@ export default function SecondaryNavbar() {
     'Home Improvement & Tools'
   ]);
 
-  const removeFilter = (filter) => {
+  const removeFilter = (filter:string) => {
     setSelectedFilters(selectedFilters.filter(f => f !== filter));
   };
 

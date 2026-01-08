@@ -13,6 +13,13 @@ const TAGS = [
   { id: 7, label: "Outdoor" },
   { id: 8, label: "Books" },
 ];
+type Notification = {
+    id: number;
+    title: string;
+    message: string;
+    time: string;
+    read: boolean;
+  };
 
 const PRODUCT_COUNT = 36; // Based on Frame 18 to Frame 75 range roughly
 const NOTIFICATIONS = Array(6).fill(null).map((_, i) => ({
@@ -23,9 +30,12 @@ const NOTIFICATIONS = Array(6).fill(null).map((_, i) => ({
   read: i > 1 // First 2 unread
 }));
 
+type IconProps = React.SVGProps<SVGSVGElement> & {
+    d: string;
+  };
 // --- Components ---
 
-const Icon = ({ path, d, ...props }: any) => (
+const Icon = ({ path, d, ...props }: IconProps) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path d={d} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
   </svg>
@@ -57,7 +67,7 @@ const ProductCard = () => (
   </div>
 );
 
-const NotificationItem = ({ item, onRead }: { item: any, onRead: () => void }) => (
+const NotificationItem = ({ item, onRead }: { item: Notification, onRead: () => void }) => (
   <div className={`flex flex-col items-center p-[10px_0px_0px] gap-[5px] w-[342px] ${item.read ? 'h-[101px]' : 'h-[118px]'}`}>
     <div className="flex flex-col items-end gap-[5px] w-[312px]">
       <div className="w-[312px] text-[14px] font-semibold leading-[17px] text-[#1F3A93]">{item.title}</div>
@@ -77,8 +87,8 @@ const NotificationItem = ({ item, onRead }: { item: any, onRead: () => void }) =
 );
 
 export default function HomeAfterConnect() {
-  const [filterTags, setFilterTags] = useState(TAGS);
-  const [notifications, setNotifications] = useState(NOTIFICATIONS);
+  const [filterTags, setFilterTags] = useState<typeof TAGS>(TAGS);
+  const [notifications, setNotifications] = useState<Notification[]>(NOTIFICATIONS);
 
   const removeTag = (id: number) => {
     setFilterTags(filterTags.filter(t => t.id !== id));
