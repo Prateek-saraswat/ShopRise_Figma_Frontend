@@ -16,11 +16,11 @@ export default function ProductDetail() {
 
   return (
     <div 
-      className="bg-white relative mx-auto"
+      className="bg-white relative my-10 mx-auto"
       style={{ 
         width: '1280px', 
-        height: '698px',
-        overflowY: 'scroll'
+        height: '100vh',
+        // overflowY: 'scroll'
       }}
     >
       <div 

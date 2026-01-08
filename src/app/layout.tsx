@@ -3,6 +3,10 @@ import "./globals.css";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer'
 import FooterComponent from "@/components/Footer2";
+import MainNavbar from "@/components/NewNavbar";
+import Footer02 from "@/components/Footer02";
+import MainFooter from "@/components/MainFooter";
+import MainNavBar from "@/components/MainNavBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,11 +22,15 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
+        {/* <MainNavBar /> */}
         {/* <Navbar /> */}
+        {/* <MainNavbar /> */}
         {children}
         {/* <Footer /> */}
         {/* <Footer /> */}
         {/* <FooterComponent /> */}
+        {/* <Footer02 /> */}
+        {/* <MainFooter /> */}
       </body>
     </html>
   );
