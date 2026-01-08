@@ -14,7 +14,7 @@ export default function Dashboard() {
     { id: '173204', date: '18 March', customer: 'Jackson Smith', product: 'Litter troller sprayer', address: 'Adress', fulfilment: 'Delivered', status: 'Delivered', total: 'Total' },
   ];
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status :string) => {
     switch (status) {
       case 'Delivered':
         return 'bg-green-100 text-green-600';
