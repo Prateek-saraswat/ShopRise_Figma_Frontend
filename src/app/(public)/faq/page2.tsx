@@ -2,9 +2,14 @@
 import { useState } from 'react';
 
 export default function FAQ() {
-  const [openQuestion, setOpenQuestion] = useState(1);
+  const [openQuestion, setOpenQuestion] = useState<number | null>(null);
+  interface FAQ {
+    id: number;
+    question: string;
+    answer: string;
+  }
 
-  const faqs = [
+  const faqs :FAQ[] = [
     {
       id: 1,
       question: "What is ShopRise",
