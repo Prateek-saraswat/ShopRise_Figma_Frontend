@@ -47,6 +47,7 @@ export default function Dashboard(){
           <div className="grid grid-cols-6 gap-y-4 gap-x-2">
             {currentProducts.map((product) => (
               <ProductCard
+              id={product.id}
                 key={product.id}
                 image={product.image}
                 title={product.title}
