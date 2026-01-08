@@ -7,7 +7,7 @@ export default function MainSecondaryNavBar() {
   const [selectedSort, setSelectedSort] = useState('Less viewed');
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-  const [activeFilters, setActiveFilters] = useState([
+  const [activeFilters, setActiveFilters] = useState <string[]>([
     'Ready to ship',
     'Antiques & Collectibles',
     'Auto Parts',
@@ -37,7 +37,7 @@ export default function MainSecondaryNavBar() {
   
   ];
 
-  const removeFilter = (filter) => {
+  const removeFilter = (filter:string) => {
     setActiveFilters(activeFilters.filter(f => f !== filter));
   };
 
@@ -45,7 +45,7 @@ export default function MainSecondaryNavBar() {
     setActiveFilters([]);
   };
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category:string) => {
     if (!activeFilters.includes(category)) {
       setActiveFilters([...activeFilters, category]);
     }
